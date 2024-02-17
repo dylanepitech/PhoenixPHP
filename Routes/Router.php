@@ -21,11 +21,11 @@ class Router{
     }
 
     public function dispatch() {
-        $url = $_SERVER['REQUEST_URI'];
+        $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         $url = str_replace("/PhoenixPHP", "", $url);
     
         foreach ($this->routes as $value) {
-            if ($value['path'] == $url && $_SERVER['REQUEST_METHOD'] == $value['method']) {
+            if ($url == $value['path'] && $_SERVER['REQUEST_METHOD'] == $value['method']) {
                 $controllerName = "Controller\\" . $value['controller'];
                 $action = $value['function'];
                 $controllerFile = 'Controller/' . $value['controller'] . ".php";
@@ -39,17 +39,18 @@ class Router{
                             exit(); 
                         } else {
                             echo 'Erreur: Méthode non trouvée dans le contrôleur';
+                            return;
                         }
                     } else {
                         echo 'Erreur: Contrôleur non trouvé';
+                        return;
                     }
                 } else {
                     echo 'Erreur: Fichier de contrôleur non trouvé';
+                 return;
                 }
             }
         }
-    
-        echo '404 - Page non trouvée';
     }
     
 }
