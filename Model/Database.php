@@ -1,6 +1,5 @@
 <?php
-
-namespace Database;
+namespace Model;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -9,14 +8,15 @@ use PDO;
 use PDOException;
 use Exception;
 
+
 class Database
 {
-    public $host;
-    public $dbname;
-    public $username;
-    public $password;
-    public $port;
-    public $conn;
+    protected $host;
+    protected $dbname;
+    protected $username;
+    protected $password;
+    protected $port;
+    protected $conn;
 
     public function __construct()
 {
@@ -28,10 +28,12 @@ class Database
     $this->username = $_ENV['DB_USERNAME'];
     $this->password = $_ENV['DB_PASSWORD'];
     $this->port =  $_ENV['DB_PORT'];
+
+     $this->connect();
 }
 
 
-public function connect(){
+protected function connect(){
     try {
         $this->conn = new PDO(
             'mysql:host=' . $this->host . ';dbname=' . $this->dbname . ';port=' . $this->port,
@@ -39,24 +41,11 @@ public function connect(){
             $this->password
         );
         $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        echo "ok";
     } catch (PDOException $e) {
         throw new Exception("Erreur de connexion à la base de donnée: ");
     }
 }
-    public function query($sql){
-        try {
-            $stmt = $this->conn->prepare($sql);
-            $stmt->execute();
-            $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            var_dump($stmt);
-
-    }catch (\Throwable $e) {
-        throw new Exception("". $e->getMessage());
-    }
-
-    }
 }
 
-$form = new Database();
-$form->connect();
-$form->query("show tables");
+$db = new Database();  

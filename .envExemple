@@ -1,10 +1,11 @@
+
 APP_NAME=MonApplication;
 APP_ENV=production;
 APP_DEBUG=false;
 APP_URL=http://monapplication.com;
 
-DB_HOST=127.0.0.1
+DB_HOST=127.0.0.1 ou localhost
 DB_NAME=mymeetic
 DB_USERNAME=root
-DB_PASSWORD=root
-DB_PORT=8889
+DB_PASSWORD=password
+DB_PORT=port
