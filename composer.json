@@ -6,7 +6,8 @@
         "psr-4": {
             "Model\\": "Model/",
             "View\\": ["View/", "Model/"],
-            "Controller\\": "Controller/"
+            "Controller\\": "Controller/",
+            "Routes\\": "Routes/"
         }
     }
 }
