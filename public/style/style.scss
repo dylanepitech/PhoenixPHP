@@ -1,0 +1,136 @@
+@import "_components";
+@import "_variable";
+@import "_grid";
+@import "_flexbox";
+@import "_position";
+@import "components/navbar";
+@import "components/popup";
+@import "components/cookie";
+
+@each $name, $value in $colors{
+    .text-#{$name}{
+        color: $value;
+    }
+    .bg-#{$name}{
+        background-color: $value;
+    }
+    .alert-#{$name}{
+        background-color: $value;
+        width: 100%;
+        height: auto;
+        min-height: 50px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 1px 1px 1px black;
+        color: if($name == light, black, white);
+    }
+    .btn-#{$name}{
+        min-width: 160px;
+        width: auto;
+        height: 35px;
+        text-align: center;
+        border-radius: 10px;
+        padding: 5px;
+        background-color: $value;
+         color: if($name == light, black, white);
+         &:disabled{
+            filter: blur(1px);
+            filter: grayscale(60%);
+            text-decoration: line-through;
+         }
+         &:hover{
+            cursor: pointer;
+            background-color: darken($value, 5%);
+         }
+         &:active{
+            box-shadow: 2px 2px 0px black;
+            cursor: pointer;
+         }
+    }
+}
+
+
+  
+  @each $name, $value in $size-media{
+    .hidden-#{$name}{
+      @media screen and (min-width: $value) {
+        visibility: hidden;
+    }
+    }
+  
+    .visible-#{$name}{
+      @media screen and (max-width: $value) {
+          visibility: hidden;
+      }
+  }
+  }
+
+  @each $name, $value in $size{
+    .pt-#{$name}{
+        padding-top: $value;
+    }
+    .pb-#{$name}{
+        padding-bottom: $value;
+    }
+    .px-#{$name}{
+        padding: 0px $value;
+    }
+    .py-#{$name}{
+        padding: $value 0px;
+    }
+    .p-#{$name}{
+        padding: $value;
+    }
+    .mt-#{$name}{
+        margin-top: $value;
+    }
+    .mb-#{$name}{
+        margin-bottom: $value;
+    }
+    .mx-#{$name}{
+        margin: 0px $value;
+    }
+    .my-#{$name}{
+        margin:$value  0px ;
+    }
+    .gap-#{$name}{
+        gap: $value;
+    }
+    .h-#{$name}{
+        height: $value;
+    }
+    .w-#{$name}{
+        width: $value;
+    }
+  }
+
+  @each $name, $value in $rounded{
+    .rounded-#{$name}{
+        border-radius: $value;
+    }
+  }
+
+  @each $name, $value in $border{
+    .border-#{$name}{
+        border: $value solid black;
+    }
+  }
+
+  .visible-print{
+    display: none;
+}
+
+@media print{
+    .visible-print{
+        display: block !important;
+    }
+}
+.hidden-print{
+    display: block;
+}
+
+@media print{
+    .hidden-print{
+        display: none !important;
+    }
+}

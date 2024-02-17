@@ -1,0 +1,104 @@
+@each $name, $value in $colors{
+    nav-#{$name}{
+        width: 100vw;
+        height: auto;
+        min-height: 60px;
+        background-color: $value;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+    }
+    nav-dropdown-#{$name}{
+        position: relative;
+        height: auto;
+        width: auto;
+        border-right: 1px solid black;
+        border-left: 1px solid black;
+        border-bottom: 1px solid black;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: $value;
+        transform: translateX(-100px) translateY(85px);
+        gap: 20px;
+    }
+}
+nav-element{
+    width: 95vw;
+    height: auto;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+element{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    a{
+        text-decoration: none;
+        color: white;
+    }
+    input{
+        height: 25px;
+        min-width: 200px;
+        width: auto;
+    }
+    .btn-nav{
+        height: 20px;
+    }
+}
+responsive{
+    display: none;
+}
+element-responsive{
+    display: none;
+}
+.responsive_active{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 20px;
+    height: 100vh;
+    width: clamp(300px,50vw, 60vw);
+    background-color: #198754;
+    position: absolute;
+    top: 60px;
+    right: 0px;
+    z-index: 3;
+    a{
+        text-decoration: none;
+        color: white;
+    }
+}
+.responsive_desactive{
+    display: none;
+    transition: 2s;
+}
+
+@media screen and (max-width: 800px) {
+    element{
+        display: none;
+    }
+    responsive{
+        display: block;
+    }
+    nav-element{
+        justify-content: end;
+    }
+   
+}
+@media screen and (min-width: 800px) {
+    .responsive_active{
+        display: none;
+    }
+}

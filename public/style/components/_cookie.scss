@@ -1,0 +1,31 @@
+.container-cookie{
+    position: fixed;
+    width: 50vw;
+    min-height: 200px;
+    height: auto;
+    background: white;
+    box-shadow: 0 6px 6px rgba(0,0,0,.25);
+    border-radius: 10px;
+    bottom: -300px;
+}
+.cookie-body{
+    width: 100%;
+    height: 100%;
+    display:flex ;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.cookie-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+@media screen and (max-width:900px ){
+.container-cookie{
+    width: 90vw;
+}
+}

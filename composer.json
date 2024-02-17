@@ -5,7 +5,7 @@
     "autoload": {
         "psr-4": {
             "Model\\": "Model/",
-            "View\\": "View/",
+            "View\\": ["View/", "Model/"],
             "Controller\\": "Controller/"
         }
     }

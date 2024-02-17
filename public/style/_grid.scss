@@ -1,0 +1,32 @@
+.row{
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    width: 100%;
+    height: auto;
+}
+.grid-center{
+    justify-items: center;
+}
+
+@each $name, $value in $size-media{
+    .screen-#{$name}{
+        @media screen and (max-width:$value) {
+            grid-template-columns: repeat(6, 1fr);
+        }   
+    }
+}
+
+@each $col, $size in $row-col {
+    .col-#{$col} {
+        grid-column: span $col;
+    }
+}
+
+@for $start from 1 through 12 {
+    @for $end from $start through 12 {
+        .col-#{$start}-#{$end} {
+            grid-column-start: $start;
+            grid-column-end: $end + 1; 
+        }
+    }
+}

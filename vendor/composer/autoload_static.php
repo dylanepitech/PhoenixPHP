@@ -49,6 +49,7 @@ class ComposerStaticInit108be68e4e2b97fed51d36a10eed0849
         'View\\' => 
         array (
             0 => __DIR__ . '/../..' . '/View',
+            1 => __DIR__ . '/../..' . '/Model',
         ),
         'Symfony\\Polyfill\\Php80\\' => 
         array (

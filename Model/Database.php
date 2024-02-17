@@ -47,5 +47,3 @@ protected function connect(){
     }
 }
 }
-
-$db = new Database();  
