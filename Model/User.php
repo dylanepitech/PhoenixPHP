@@ -3,7 +3,6 @@ namespace Model;
 require_once __DIR__ . '../vendor/autoload.php';
 
 
-
 class User_model extends Database
 {
     protected $db;
