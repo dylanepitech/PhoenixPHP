@@ -1,6 +1,6 @@
 <?php
 namespace Model;
-require_once __DIR__ . '../vendor/autoload.php';
+require_once __DIR__ . '../../vendor/autoload.php';
 
 
 class User_model extends Database
@@ -11,6 +11,6 @@ class User_model extends Database
     {
         $this->db = new Database();
     }
-}
+}  
 
-$cc = new User_model();
+$d = new User_model();
