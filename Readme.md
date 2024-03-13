@@ -39,6 +39,6 @@ Pour tirer le meilleur parti de PhoenixPHP, veuillez suivre les étapes ci-desso
 1. **Clonez le dépôt :**
 
 ```bash
-git clone https://github.com/votreUsername/PhoenixPHP.git
+git clone https://github.com/dylanepitech/PhoenixPHP.git
 cd PhoenixPHP
 composer install
